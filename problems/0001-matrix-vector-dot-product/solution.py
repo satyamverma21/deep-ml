@@ -2,9 +2,14 @@ def matrix_dot_vector(a: list[list[int|float]], b: list[int|float]) -> list[int|
 
 	# Return a list where each element is the dot product of a row of 'a' with 'b'.
 	# If the number of columns in 'a' does not match the length of 'b', return -1.
-	
+	import numpy as np
+	from operator import mul
 
 	if any(len(row) != len(b) for row in a):
 		return  -1
 
-	return [sum(x*y for x,y in zip(row,b)) for row in a]
+	# return [sum(x*y for x,y in zip(row,b)) for row in a]
+
+	return [sum(map(mul, row, b)) for row in a]
+
+	# return np.dot(a,b)
