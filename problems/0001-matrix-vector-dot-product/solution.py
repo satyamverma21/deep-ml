@@ -10,6 +10,8 @@ def matrix_dot_vector(a: list[list[int|float]], b: list[int|float]) -> list[int|
 
 	# return [sum(x*y for x,y in zip(row,b)) for row in a]
 
-	return [sum(map(mul, row, b)) for row in a]
+	# return [sum(map(mul, row, b)) for row in a]
 
-	# return np.dot(a,b)
+	# return list(map(lambda r: sum(map(mul, r, b)), a))
+
+	return np.dot(a,b)
